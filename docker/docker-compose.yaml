@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  erlang:
+    build:
+      context: .
+    container_name: erlang_study
+    volumes:
+      - ../src:/home/student/src
