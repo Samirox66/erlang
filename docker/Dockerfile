@@ -1,4 +1,4 @@
-FROM erlang:26.0.2
+FROM erlang:slim
 
 RUN apt-get update && \
     apt-get install mc -y && \
