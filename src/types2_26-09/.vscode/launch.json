@@ -5,11 +5,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch erlang",
+      "name": "Types2",
       "type": "erlang",
       "request": "launch",
       "cwd": "${workspaceRoot}",
-      "arguments": "-s lecture start"
+      "arguments": "-run lecture start -noshell -s init stop"
     }
   ]
 }
