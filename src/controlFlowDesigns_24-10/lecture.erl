@@ -72,7 +72,7 @@ factorial_guard(0) -> 1.
 recursion() ->
     io:fwrite("average([1, 2, 3]) = ~p\n", [average([1, 2, 3])]),
     io:fwrite("tail_len([1, 2, 3]) = ~p, \n", [tail_len([1, 2, 3])]),
-    io:fwrite("sum(5) = ~p\n", [sum(5)]).
+    io:fwrite("sum(5) = ~p\n", [sum_guard(5)]).
 
 average(List) -> sum(List) / len (List).
 
@@ -87,7 +87,7 @@ tail_len(L) -> tail_len(L, 0).
 tail_len([], Acc) -> Acc;
 tail_len([_|T], Acc) -> tail_len(T, Acc + 1).
 
-sum(Boundary) -> sum_acc(1, Boundary, 0).
+sum_guard(Boundary) -> sum_acc(1, Boundary, 0).
 sum_acc(Index, Boundary, Sum) when Index =< Boundary ->
 sum_acc(Index + 1, Boundary, Sum + Index);
 sum_acc(_I, _B, Sum) ->
