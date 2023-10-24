@@ -4,7 +4,8 @@
 start() ->
     printCase(),
     if_expression(),
-    guard().
+    guard(),
+    recursion().
 
 printCase() ->
     B = convert(monday),
@@ -67,3 +68,27 @@ factorial(N) -> N * factorial (N - 1 ).
 factorial_guard(N) when N > 0 ->
     N * factorial_guard(N - 1);
 factorial_guard(0) -> 1.
+
+recursion() ->
+    io:fwrite("average([1, 2, 3]) = ~p\n", [average([1, 2, 3])]),
+    io:fwrite("tail_len([1, 2, 3]) = ~p, \n", [tail_len([1, 2, 3])]),
+    io:fwrite("sum(5) = ~p\n", [sum(5)]).
+
+average(List) -> sum(List) / len (List).
+
+sum([]) -> 0;
+sum([Head | Tail]) -> Head + sum(Tail).
+
+len([]) -> 0;
+len([_ | Tail]) -> 1 + len(Tail).
+
+tail_len(L) -> tail_len(L, 0).
+
+tail_len([], Acc) -> Acc;
+tail_len([_|T], Acc) -> tail_len(T, Acc + 1).
+
+sum(Boundary) -> sum_acc(1, Boundary, 0).
+sum_acc(Index, Boundary, Sum) when Index =< Boundary ->
+sum_acc(Index + 1, Boundary, Sum + Index);
+sum_acc(_I, _B, Sum) ->
+Sum.
