@@ -7,7 +7,7 @@ start() ->
     io:format("check with try/catch: ~p~n", [check_data_new(Data)]),
     io:format("check without try/catch: ~p~n", [check_data(Data)]),
     link(),
-    % run_and_crash(),
+    % run_and_crash().
     system_run().
 
 try_catch() ->
